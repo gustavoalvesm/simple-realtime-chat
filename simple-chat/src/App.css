@@ -1,0 +1,15 @@
+html, body, #root{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    width: 100%;
+    font-family: Arial;
+    font-size: 14px;
+}
+
+.App{
+    background-color: #f3f2f2;
+    width: 96%;
+    max-width: 700px;
+}
