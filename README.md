@@ -2,6 +2,8 @@
 # simple-realtime-chat
 Simple realtime chat created with React, Node.js and Socket.io.
 
+![Simple realtime chat - preview](https://i.imgur.com/IdpgLWU.gif)
+
 ## Requirements
 1. Install [Node.js](https://nodejs.org/en/download/).
 2. Other project dependencies will be installed in the next steps.
