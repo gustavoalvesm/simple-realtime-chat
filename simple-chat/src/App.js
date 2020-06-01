@@ -4,14 +4,9 @@ import io from 'socket.io-client';
 
 const socket = io('http://localhost:3000');
 
-function generateUsername() {
-  let date = new Date();
-  return `user-${date.getHours()}${date.getMinutes()}${date.getSeconds()}`;
-}
-
 function App() {
 
-  const [username] = useState(generateUsername());
+  const [username, setUsername] = useState(null);
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
 
@@ -40,20 +35,28 @@ function App() {
 
   // Process and render a message
   const renderMessage = (msg, index) => {
-    const senderClass = msg.username === username ? 'App__MessagesBox__Message--sender' : '';
+    const senderClass = msg.username === username ? 'App_MessagesBox_Message--sender' : '';
     return (
-      <div className={`App__MessagesBox__Message ${senderClass}`} key={`msg${index}`}>
-        <div className="App__MessagesBox__Message__Username">{msg.username}</div>
-        <div className="App__MessagesBox__Message__Content">{msg.message}</div>
+      <div className={`App_MessagesBox_Message ${senderClass}`} key={`msg${index}`}>
+        <div className="App_MessagesBoxMessage_Username">{msg.username}</div>
+        <div className="App_MessagesBoxMessage_Content">{msg.message}</div>
       </div>
     );
   }
 
+  // Set a new username
+  const defineUsername = (e) => {
+    e.preventDefault();
+    setUsername(e.target.username.value);
+  }
+
   return (
     <main className="App">
+
       <section className="App__MessagesBox">
         {messages.map((msg, index) => renderMessage(msg, index))}
       </section>
+
       <form
         onSubmit={sendMessage}
         className="App__WriteBox"
@@ -66,6 +69,29 @@ function App() {
           autoFocus
         />
       </form>
+
+      {
+        !username &&
+        <section className="App__PopupUsername">
+          <h1 className="App_PopupUsername_Title">
+            <span>Simple</span>Chat
+          </h1>
+          <p>Set a new username for you:</p>
+          <form
+            onSubmit={defineUsername}
+            className="App__WriteBox"
+          >
+            <input
+              name="username"
+              placeholder="Username..."
+              required={true}
+              style={{ width: '310px' }}
+              autoFocus
+            />
+          </form>
+        </section>
+      }
+
     </main>
   );
 }

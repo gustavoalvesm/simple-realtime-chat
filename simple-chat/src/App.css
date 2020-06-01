@@ -6,7 +6,7 @@ html, body, #root{
     width: 100%;
     font-family: Arial;
     font-size: 14px;
-    background-color: white;
+    background-color: #1a282e;
 }
 
 input:focus{
@@ -20,31 +20,67 @@ input:focus{
 
 .App__WriteBox input{
     width: 100%;
-    border: 1px solid rgb(194, 194, 194);
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
     border-radius: 100px;
-    padding: 10px 15px;
+    padding: 15px;
     box-sizing: border-box;
     -webkit-box-sizing:border-box;
     -moz-box-sizing: border-box;
     margin-top: 5px;
 }
 
-.App__MessagesBox__Message{
+.App_MessagesBox_Message{
     width: 70%;
     margin-bottom: 10px;
 }
 
-.App__MessagesBox__Message--sender{
+.App_MessagesBox_Message--sender{
     margin-left: 30%;
     text-align: right;
 }
 
-.App__MessagesBox__Message__Username{
+.App_MessagesBoxMessage_Username{
     font-size: 11px;
     letter-spacing: 0.3px;
     color: rgb(0, 131, 55);
 }
 
-.App__MessagesBox__Message--sender .App__MessagesBox__Message__Username{
-    color: rgb(189, 38, 0);;
+.App_MessagesBoxMessage--sender .AppMessagesBoxMessage_Username{
+    color: #F2B705;
+}
+
+.App_MessagesBoxMessage_Content{
+    color: white;
+}
+
+.App__PopupUsername{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    color: white;
+}
+
+.App_PopupUsername_Title{
+    font-weight: normal;
+    font-size: 36px;
+    margin: 0;
+    padding: 0;
+}
+
+.App_PopupUsername_Title span{
+    font-weight: bold;
+    color: #F2B705;
 }
