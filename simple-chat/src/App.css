@@ -6,10 +6,45 @@ html, body, #root{
     width: 100%;
     font-family: Arial;
     font-size: 14px;
+    background-color: white;
+}
+
+input:focus{
+    outline: none;
 }
 
 .App{
-    background-color: #f3f2f2;
     width: 96%;
-    max-width: 700px;
+    max-width: 600px;
+}
+
+.App__WriteBox input{
+    width: 100%;
+    border: 1px solid rgb(194, 194, 194);
+    border-radius: 100px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing: border-box;
+    margin-top: 5px;
+}
+
+.App__MessagesBox__Message{
+    width: 70%;
+    margin-bottom: 10px;
+}
+
+.App__MessagesBox__Message--sender{
+    margin-left: 30%;
+    text-align: right;
+}
+
+.App__MessagesBox__Message__Username{
+    font-size: 11px;
+    letter-spacing: 0.3px;
+    color: rgb(0, 131, 55);
+}
+
+.App__MessagesBox__Message--sender .App__MessagesBox__Message__Username{
+    color: rgb(189, 38, 0);;
 }
